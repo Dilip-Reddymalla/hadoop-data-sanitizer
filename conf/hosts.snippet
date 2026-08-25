@@ -1,0 +1,18 @@
+# ============================================================================
+# Append to /etc/hosts on EVERY node (needs sudo).
+# ============================================================================
+#
+# WHY, when the mesh already provides DNS: on at least one of our five machines
+# the mesh's own DNS was not reachable from inside WSL2 - /etc/resolv.conf held
+# only the WSL NAT resolver, so mesh names did not resolve at all. A static
+# block costs nothing and removes DNS from the list of things that can break the
+# cluster at 2am.
+#
+# See wsl.conf in this directory: WSL rewrites /etc/hosts on every boot unless
+# you tell it not to, which will silently undo this file.
+
+100.64.0.10   master
+100.64.0.11   worker1
+100.64.0.12   worker2
+100.64.0.13   worker3
+100.64.0.14   worker4

@@ -1,0 +1,16 @@
+# workers  -  MASTER ONLY.
+#
+# Read by start-dfs.sh / start-yarn.sh to decide which hosts to SSH into and
+# start daemons on. On a worker node this file is irrelevant - leave it as
+# `localhost` or empty, it changes nothing.
+#
+# Use the mesh IPs, not hostnames. The scripts SSH to exactly what is written
+# here, and a name that only resolves on one machine will fail from the master.
+#
+# Note the master IS listed: it runs a DataNode and a NodeManager too, so its
+# storage and its two cores are not wasted.
+100.64.0.10
+100.64.0.11
+100.64.0.12
+100.64.0.13
+100.64.0.14

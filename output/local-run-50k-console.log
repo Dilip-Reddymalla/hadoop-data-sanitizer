@@ -1,0 +1,209 @@
+Input   : /tmp/localrun/in
+Output  : /tmp/localrun/out
+Reducers: 1
+2026-08-25 09:44:59,318 INFO input.FileInputFormat: Total input files to process : 1
+2026-08-25 09:44:59,357 INFO mapreduce.JobSubmitter: number of splits:1
+2026-08-25 09:44:59,677 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_local699388292_0001
+2026-08-25 09:44:59,680 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2026-08-25 09:45:00,004 INFO mapreduce.Job: The url to track the job: http://localhost:8080/
+2026-08-25 09:45:00,006 INFO mapreduce.Job: Running job: job_local699388292_0001
+2026-08-25 09:45:00,007 INFO mapred.LocalJobRunner: OutputCommitter set in config null
+2026-08-25 09:45:00,014 INFO output.PathOutputCommitterFactory: No output committer factory defined, defaulting to FileOutputCommitterFactory
+2026-08-25 09:45:00,015 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 2
+2026-08-25 09:45:00,015 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2026-08-25 09:45:00,017 INFO mapred.LocalJobRunner: OutputCommitter is org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+2026-08-25 09:45:00,081 INFO mapred.LocalJobRunner: Waiting for map tasks
+2026-08-25 09:45:00,082 INFO mapred.LocalJobRunner: Starting task: attempt_local699388292_0001_m_000000_0
+2026-08-25 09:45:00,119 INFO output.PathOutputCommitterFactory: No output committer factory defined, defaulting to FileOutputCommitterFactory
+2026-08-25 09:45:00,119 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 2
+2026-08-25 09:45:00,119 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2026-08-25 09:45:00,163 INFO mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+2026-08-25 09:45:00,174 INFO mapred.MapTask: Processing split: file:/tmp/localrun/in/sample.csv:0+6400816
+2026-08-25 09:45:00,284 INFO mapred.MapTask: (EQUATOR) 0 kvi 26214396(104857584)
+2026-08-25 09:45:00,284 INFO mapred.MapTask: mapreduce.task.io.sort.mb: 100
+2026-08-25 09:45:00,284 INFO mapred.MapTask: soft limit at 83886080
+2026-08-25 09:45:00,284 INFO mapred.MapTask: bufstart = 0; bufvoid = 104857600
+2026-08-25 09:45:00,284 INFO mapred.MapTask: kvstart = 26214396; length = 6553600
+2026-08-25 09:45:00,287 INFO mapred.MapTask: Map output collector class = org.apache.hadoop.mapred.MapTask$MapOutputBuffer
+2026-08-25 09:45:01,015 INFO mapreduce.Job: Job job_local699388292_0001 running in uber mode : false
+2026-08-25 09:45:01,016 INFO mapreduce.Job:  map 0% reduce 0%
+2026-08-25 09:45:02,597 INFO mapred.LocalJobRunner: 
+2026-08-25 09:45:02,610 INFO mapred.MapTask: Starting flush of map output
+2026-08-25 09:45:02,610 INFO mapred.MapTask: Spilling map output
+2026-08-25 09:45:02,610 INFO mapred.MapTask: bufstart = 0; bufend = 6627088; bufvoid = 104857600
+2026-08-25 09:45:02,610 INFO mapred.MapTask: kvstart = 26214396(104857584); kvend = 26020040(104080160); length = 194357/6553600
+2026-08-25 09:45:02,770 INFO mapred.MapTask: Finished spill 0
+2026-08-25 09:45:02,788 INFO mapred.Task: Task:attempt_local699388292_0001_m_000000_0 is done. And is in the process of committing
+2026-08-25 09:45:02,790 INFO mapred.LocalJobRunner: map
+2026-08-25 09:45:02,791 INFO mapred.Task: Task 'attempt_local699388292_0001_m_000000_0' done.
+2026-08-25 09:45:02,800 INFO mapred.Task: Final Counters for attempt_local699388292_0001_m_000000_0: Counters: 25
+	File System Counters
+		FILE: Number of bytes read=6416598
+		FILE: Number of bytes written=7491334
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+	Map-Reduce Framework
+		Map input records=50001
+		Map output records=48590
+		Map output bytes=6627088
+		Map output materialized bytes=6742960
+		Input split bytes=97
+		Combine input records=0
+		Spilled Records=48590
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=69
+		Total committed heap usage (bytes)=264241152
+	DATA_SANITIZATION
+		BLANK_FIELD_RECORDS=97
+		HEADER_ROWS_SKIPPED=1
+		INVALID_NUMERIC_RECORDS=142
+		INVALID_RECORDS=1410
+		LOGICAL_INCONSISTENCY_RECORDS=1171
+		QUOTED_FIELD_RECORDS=8
+		TOTAL_RECORDS=50000
+		VALID_RECORDS=48590
+	File Input Format Counters 
+		Bytes Read=6400816
+2026-08-25 09:45:02,800 INFO mapred.LocalJobRunner: Finishing task: attempt_local699388292_0001_m_000000_0
+2026-08-25 09:45:02,801 INFO mapred.LocalJobRunner: map task executor complete.
+2026-08-25 09:45:02,805 INFO mapred.LocalJobRunner: Waiting for reduce tasks
+2026-08-25 09:45:02,805 INFO mapred.LocalJobRunner: Starting task: attempt_local699388292_0001_r_000000_0
+2026-08-25 09:45:02,817 INFO output.PathOutputCommitterFactory: No output committer factory defined, defaulting to FileOutputCommitterFactory
+2026-08-25 09:45:02,817 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 2
+2026-08-25 09:45:02,817 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2026-08-25 09:45:02,818 INFO mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+2026-08-25 09:45:02,820 INFO mapred.ReduceTask: Using ShuffleConsumerPlugin: org.apache.hadoop.mapreduce.task.reduce.Shuffle@5ff84bbd
+2026-08-25 09:45:02,822 WARN impl.MetricsSystemImpl: JobTracker metrics system already initialized!
+2026-08-25 09:45:02,846 INFO reduce.MergeManagerImpl: MergerManager: memoryLimit=678218944, maxSingleShuffleLimit=169554736, mergeThreshold=447624512, ioSortFactor=10, memToMemMergeOutputsThreshold=10
+2026-08-25 09:45:02,850 INFO reduce.EventFetcher: attempt_local699388292_0001_r_000000_0 Thread started: EventFetcher for fetching Map Completion Events
+2026-08-25 09:45:02,940 INFO reduce.LocalFetcher: localfetcher#1 about to shuffle output of map attempt_local699388292_0001_m_000000_0 decomp: 6742956 len: 6742960 to MEMORY
+2026-08-25 09:45:02,958 INFO reduce.InMemoryMapOutput: Read 6742956 bytes from map-output for attempt_local699388292_0001_m_000000_0
+2026-08-25 09:45:02,966 INFO reduce.MergeManagerImpl: closeInMemoryFile -> map-output of size: 6742956, inMemoryMapOutputs.size() -> 1, commitMemory -> 0, usedMemory ->6742956
+2026-08-25 09:45:02,968 INFO reduce.EventFetcher: EventFetcher is interrupted.. Returning
+2026-08-25 09:45:02,969 INFO mapred.LocalJobRunner: 1 / 1 copied.
+2026-08-25 09:45:02,969 INFO reduce.MergeManagerImpl: finalMerge called with 1 in-memory map-outputs and 0 on-disk map-outputs
+2026-08-25 09:45:02,977 INFO mapred.Merger: Merging 1 sorted segments
+2026-08-25 09:45:02,977 INFO mapred.Merger: Down to the last merge-pass, with 1 segments left of total size: 6742942 bytes
+2026-08-25 09:45:03,020 INFO mapreduce.Job:  map 100% reduce 0%
+2026-08-25 09:45:03,043 INFO reduce.MergeManagerImpl: Merged 1 segments, 6742956 bytes to disk to satisfy reduce memory limit
+2026-08-25 09:45:03,043 INFO reduce.MergeManagerImpl: Merging 1 files, 6742960 bytes from disk
+2026-08-25 09:45:03,044 INFO reduce.MergeManagerImpl: Merging 0 segments, 0 bytes from memory into reduce
+2026-08-25 09:45:03,044 INFO mapred.Merger: Merging 1 sorted segments
+2026-08-25 09:45:03,045 INFO mapred.Merger: Down to the last merge-pass, with 1 segments left of total size: 6742942 bytes
+2026-08-25 09:45:03,046 INFO mapred.LocalJobRunner: 1 / 1 copied.
+2026-08-25 09:45:03,056 INFO Configuration.deprecation: mapred.skip.on is deprecated. Instead, use mapreduce.job.skiprecords
+2026-08-25 09:45:03,500 INFO mapred.Task: Task:attempt_local699388292_0001_r_000000_0 is done. And is in the process of committing
+2026-08-25 09:45:03,501 INFO mapred.LocalJobRunner: 1 / 1 copied.
+2026-08-25 09:45:03,501 INFO mapred.Task: Task attempt_local699388292_0001_r_000000_0 is allowed to commit now
+2026-08-25 09:45:03,503 INFO output.FileOutputCommitter: Saved output of task 'attempt_local699388292_0001_r_000000_0' to file:/tmp/localrun/out
+2026-08-25 09:45:03,505 INFO mapred.LocalJobRunner: reduce > reduce
+2026-08-25 09:45:03,505 INFO mapred.Task: Task 'attempt_local699388292_0001_r_000000_0' done.
+2026-08-25 09:45:03,506 INFO mapred.Task: Final Counters for attempt_local699388292_0001_r_000000_0: Counters: 25
+	File System Counters
+		FILE: Number of bytes read=19902550
+		FILE: Number of bytes written=20357654
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+	Map-Reduce Framework
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=48590
+		Reduce shuffle bytes=6742960
+		Reduce input records=48590
+		Reduce output records=48590
+		Spilled Records=48590
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=4
+		Total committed heap usage (bytes)=264241152
+	DATA_SANITIZATION
+		UNIQUE_CLEAN_RECORDS=48590
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Output Format Counters 
+		Bytes Written=6123360
+2026-08-25 09:45:03,506 INFO mapred.LocalJobRunner: Finishing task: attempt_local699388292_0001_r_000000_0
+2026-08-25 09:45:03,507 INFO mapred.LocalJobRunner: reduce task executor complete.
+2026-08-25 09:45:04,022 INFO mapreduce.Job:  map 100% reduce 100%
+2026-08-25 09:45:04,023 INFO mapreduce.Job: Job job_local699388292_0001 completed successfully
+2026-08-25 09:45:04,046 INFO mapreduce.Job: Counters: 39
+	File System Counters
+		FILE: Number of bytes read=26319148
+		FILE: Number of bytes written=27848988
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+	Map-Reduce Framework
+		Map input records=50001
+		Map output records=48590
+		Map output bytes=6627088
+		Map output materialized bytes=6742960
+		Input split bytes=97
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=48590
+		Reduce shuffle bytes=6742960
+		Reduce input records=48590
+		Reduce output records=48590
+		Spilled Records=97180
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=73
+		Total committed heap usage (bytes)=528482304
+	DATA_SANITIZATION
+		BLANK_FIELD_RECORDS=97
+		HEADER_ROWS_SKIPPED=1
+		INVALID_NUMERIC_RECORDS=142
+		INVALID_RECORDS=1410
+		LOGICAL_INCONSISTENCY_RECORDS=1171
+		QUOTED_FIELD_RECORDS=8
+		TOTAL_RECORDS=50000
+		UNIQUE_CLEAN_RECORDS=48590
+		VALID_RECORDS=48590
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=6400816
+	File Output Format Counters 
+		Bytes Written=6123360
+
+============================================================
+               DATA SANITIZATION REPORT
+============================================================
+  Records read (excl. header)  : 50,000
+  VALID (passed all 7 rules)   : 48,590  (97.18%)
+  INVALID (discarded)          : 1,410  (2.82%)
+------------------------------------------------------------
+  Rejection reasons (first failing rule wins):
+    1 malformed / wrong columns  :         0  (0.00%)
+    2 blank required field       :        97  (0.19%)
+    3 bad Employee_ID format     :         0  (0.00%)
+    4 invalid / inconsistent date :         0  (0.00%)
+    5 value outside category set :         0  (0.00%)
+    6 numeric out of range       :       142  (0.28%)
+    7 logical inconsistency      :     1,171  (2.34%)
+------------------------------------------------------------
+  Quote-aware parses (rescued) : 8
+  Duplicate Employee_ID dropped: 0
+  FINAL unique clean records   : 48,590
+  Wall-clock (driver-measured) : 5.3 s
+------------------------------------------------------------
+  CHECK valid + invalid == read : PASS (48,590 + 1,410 = 50,000)
+  CHECK reasons == invalid      : PASS (1,410 vs 1,410)
+  CHECK unique + dupes == valid : PASS (48,590 + 0 = 48,590)
+============================================================

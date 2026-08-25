@@ -1,0 +1,40 @@
+Employee_ID,Full_Name,Department,Job_Title,Hire_Date,Performance_Rating,Experience_Years,Status,Work_Mode,Salary,Year,Country,City,Age,Job_Level
+EMP0000001,Alice Fischer,Sales,Business Development,2019-03-11,Good,6,Active,On-site,88000.0,2019,Germany,Munich,34,Mid
+EMP0000002,"Nuwenhuysen, van der",IT,Software Developer,2015-07-02,Excellent,9,Active,Remote,121000.0,2015,Netherlands,Utrecht,38,Senior
+EMP0000003,Carlos Mendez,Finance,Financial Analyst,2021-01-18,Satisfactory,3,Resigned,Hybrid,71500.0,2021,Spain,Madrid,27,Mid
+EMP0000004,Dana Whitfield,HR,HR Manager,2010-09-30,Good,14,Active,On-site,118250.0,2010,United Kingdom,Leeds,45,Senior
+EMP0000005,Emil Novak,Operations,Logistics,2023-05-22,Needs Improvement,2,Active,Remote,52400.0,2023,Poland,Warsaw,25,Junior
+EMP0000001,Alice Fischer,Sales,Business Development,2019-03-11,Good,6,Active,On-site,88000.0,2019,Germany,Munich,34,Mid
+EMP0000001,Alice Fischer DUPLICATE TWO,Sales,Business Development,2019-03-11,Good,6,Active,On-site,88000.0,2019,Germany,Munich,34,Mid
+EMP0000003,Carlos Mendez DUPLICATE,Finance,Financial Analyst,2021-01-18,Satisfactory,3,Resigned,Hybrid,71500.0,2021,Spain,Madrid,27,Mid
+EMP0000101,Missing Tail Columns,Sales,Sales Manager,2020-02-02,Good,5
+EMP0000102,Too Many Columns,IT,System Admin,2020-02-02,Good,5,Active,Remote,90000.0,2020,France,Lyon,30,Mid,EXTRA_COLUMN
+EMP0000103,Only,Three
+EMP0000104,,Sales,Regional Lead,2018-04-04,Good,7,Active,On-site,93000.0,2018,Italy,Milan,33,Mid
+EMP0000105,Blank Rating,IT,Data Engineer,2017-06-06,,8,Active,Hybrid,99000.0,2017,Germany,Berlin,35,Senior
+EMP0000106,Placeholder Dept,N/A,Data Engineer,2017-06-06,Good,8,Active,Hybrid,99000.0,2017,Germany,Berlin,35,Senior
+EMP0000107,Nan Salary,Finance,CFO,2016-08-08,Good,12,Active,On-site,nan,2016,Spain,Seville,40,Director
+EMP0000108,Null City,HR,Talent Specialist,2019-10-10,Good,4,Active,Remote,68000.0,2019,France,null,29,Mid
+EMP99,Short Id,Sales,Sales Manager,2019-01-01,Good,6,Active,On-site,88000.0,2019,Germany,Munich,34,Mid
+XYZ0000110,Wrong Prefix,IT,Software Developer,2019-01-01,Good,6,Active,Remote,95000.0,2019,France,Paris,31,Mid
+EMP00A0111,Letter In Digits,HR,HR Coordinator,2019-01-01,Good,6,Active,On-site,66000.0,2019,Italy,Rome,32,Mid
+EMP0000120,Bad Month,Sales,Regional Lead,2019-13-01,Good,6,Active,On-site,88000.0,2019,Germany,Munich,34,Mid
+EMP0000121,Bad Day,IT,System Admin,2019-02-31,Good,6,Active,Remote,91000.0,2019,France,Nice,33,Mid
+EMP0000122,Not A Date,Finance,Accountant,not-a-date,Good,6,Active,On-site,74000.0,2019,Spain,Bilbao,30,Mid
+EMP0000123,Year Mismatch,HR,HR Manager,2019-05-05,Good,6,Active,On-site,88000.0,2022,Poland,Krakow,34,Mid
+EMP0000124,Year Too Old,Operations,Logistics,1975-05-05,Good,6,Active,On-site,60000.0,1975,Italy,Turin,50,Mid
+EMP0000130,Bad Department,Marketing,Brand Lead,2019-05-05,Good,6,Active,On-site,88000.0,2019,Germany,Munich,34,Mid
+EMP0000131,Bad Job Level,IT,Software Developer,2019-05-05,Good,6,Active,Remote,95000.0,2019,France,Paris,31,Principal
+EMP0000132,Bad Status,Sales,Sales Manager,2019-05-05,Good,6,Furloughed,On-site,88000.0,2019,Spain,Madrid,34,Mid
+EMP0000133,Bad Work Mode,HR,HR Coordinator,2019-05-05,Good,6,Active,Telepathic,66000.0,2019,Italy,Rome,32,Mid
+EMP0000134,Bad Rating,Finance,Accountant,2019-05-05,Superb,6,Active,On-site,74000.0,2019,Poland,Warsaw,30,Mid
+EMP0000140,Negative Salary,Sales,Sales Manager,2019-05-05,Good,6,Active,On-site,-86735.0,2019,United Kingdom,Leeds,34,Mid
+EMP0000141,Zero Salary,IT,System Admin,2019-05-05,Good,6,Active,Remote,0.0,2019,France,Lyon,33,Mid
+EMP0000142,Negative Experience,Operations,Logistics,2019-05-05,Good,-5,Active,On-site,70000.0,2019,Spain,Bilbao,36,Mid
+EMP0000143,Experience Too High,Finance,CFO,2019-05-05,Good,80,Active,On-site,250000.0,2019,Germany,Frankfurt,60,Director
+EMP0000144,Age Too Low,HR,HR Coordinator,2019-05-05,Good,1,Active,Remote,45000.0,2019,Italy,Milan,12,Junior
+EMP0000145,Fractional Age,Sales,Regional Lead,2019-05-05,Good,6,Active,On-site,88000.0,2019,Poland,Krakow,34.7,Mid
+EMP0000150,Career Longer Than Life,IT,Software Developer,2019-05-05,Good,20,Active,Remote,95000.0,2019,France,Paris,30,Senior
+EMP0000151,Age Equals Exp Plus 20,Finance,Accountant,2019-05-05,Good,10,Active,On-site,74000.0,2019,Spain,Madrid,30,Mid
+EMP0000152,Boundary Exp Plus 21 OK,HR,HR Manager,2019-05-05,Good,10,Active,On-site,88000.0,2019,Italy,Rome,31,Senior
+

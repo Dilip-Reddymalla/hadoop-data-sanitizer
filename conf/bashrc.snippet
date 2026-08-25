@@ -1,0 +1,17 @@
+# ============================================================================
+# Append to ~/.bashrc on EVERY node, then `source ~/.bashrc`.
+# ============================================================================
+
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export HADOOP_HOME=/opt/hadoop
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+
+# Hadoop 3 splits these out; several tools read one and not the others, and a
+# missing HADOOP_MAPRED_HOME is a classic cause of a job that submits and dies.
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+
+export PATH=$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH

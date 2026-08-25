@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  core-site.xml  -  IDENTICAL ON ALL FIVE NODES.
+
+  fs.defaultFS is the single address every client, DataNode and NodeManager uses
+  to find the NameNode. It must be an address that resolves from every node in
+  the cluster, which is exactly why the mesh IP is used here and not a hostname.
+
+  Substitute <MASTER_IP> with the master's own mesh address (see docs/README).
+  Do NOT put localhost or 127.0.0.1 here: a worker resolving "localhost" looks
+  for a NameNode on itself and will never find one.
+-->
+<configuration>
+
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://100.64.0.10:9000</value>
+        <description>
+            NameNode RPC endpoint. Port 9000 is the RPC port, not the web UI.
+            The web UI is 9870 and is not a substitute for this.
+        </description>
+    </property>
+
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/data/hadoop/tmp</value>
+        <description>
+            Base for scratch state. Kept off /tmp deliberately, so a reboot that
+            clears /tmp cannot take HDFS metadata or job staging with it.
+        </description>
+    </property>
+
+</configuration>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  yarn-site.xml
+
+  ####################################################################
+  #  THIS IS THE ONLY FILE THAT IS DIFFERENT ON EVERY NODE.           #
+  #  yarn.nodemanager.hostname must be THAT NODE'S OWN mesh IP.       #
+  ####################################################################
+
+  On the master  -> 100.64.0.10
+  On worker 1    -> 100.64.0.11
+  On worker 2    -> 100.64.0.12
+  On worker 3    -> 100.64.0.13
+  On worker 4    -> 100.64.0.14
+
+  If you copy this file between nodes without changing that one value, every
+  NodeManager will advertise the same address and the ResourceManager will treat
+  them as one node that keeps re-registering.
+
+  WHY THE PROPERTY IS SET AT ALL - see docs/TROUBLESHOOTING.md, issue #1. Left
+  unset, a NodeManager advertises `hostname -f`, which under WSL2 resolves to
+  something like `MACHINE.localdomain`. That name is resolvable only on the
+  machine that owns it. The ResourceManager must resolve a NodeManager's address
+  to mint a container token, so container allocation fails silently and every
+  application sits in ACCEPTED forever.
+-->
+<configuration>
+
+    <!-- ============================= cluster-wide ============================ -->
+    <property>
+        <name>yarn.resourcemanager.hostname</name>
+        <value>100.64.0.10</value>
+        <description>
+            Master's mesh IP. Setting this one property derives the scheduler,
+            resource-tracker, admin and web-app addresses automatically.
+        </description>
+    </property>
+
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+        <description>
+            Without this the reduce phase cannot fetch map output and the job
+            hangs at "reduce 0%". Required on EVERY NodeManager - a node that is
+            missing it will run maps and then stall the whole job.
+        </description>
+    </property>
+
+    <!-- ============================ THIS NODE ONLY =========================== -->
+    <property>
+        <name>yarn.nodemanager.hostname</name>
+        <value>100.64.0.14</value>
+        <description>
+            CHANGE PER NODE. The address this NodeManager advertises to the
+            ResourceManager. Must be resolvable from the master.
+        </description>
+    </property>
+
+    <!-- ======================= per-node resource budget ====================== -->
+    <property>
+        <name>yarn.nodemanager.resource.memory-mb</name>
+        <value>2048</value>
+        <description>
+            RAM this node offers to containers. Deliberately modest: these are
+            laptops that also run a desktop, a browser and WSL2's own overhead.
+            Five nodes x 2048 MB = 10240 MB of cluster memory.
+        </description>
+    </property>
+
+    <property>
+        <name>yarn.nodemanager.resource.cpu-vcores</name>
+        <value>2</value>
+        <description>Two vcores per node, ten across the cluster.</description>
+    </property>
+
+    <property>
+        <name>yarn.scheduler.maximum-allocation-mb</name>
+        <value>2048</value>
+        <description>
+            Ceiling for a single container request. Must be at or below the
+            per-node memory above, otherwise the scheduler accepts a request
+            that no node can ever satisfy and the application waits forever.
+        </description>
+    </property>
+
+    <property>
+        <name>yarn.scheduler.minimum-allocation-mb</name>
+        <value>512</value>
+    </property>
+
+    <!-- =============================== WSL2 sanity ============================ -->
+    <property>
+        <name>yarn.nodemanager.vmem-check-enabled</name>
+        <value>false</value>
+        <description>
+            The virtual-memory check compares a JVM's reserved address space
+            against a multiple of its physical allocation. Under WSL2 that
+            reservation is large and the check kills healthy containers. The
+            physical-memory check below is the one that actually protects the
+            host, and it stays on.
+        </description>
+    </property>
+
+    <property>
+        <name>yarn.nodemanager.pmem-check-enabled</name>
+        <value>true</value>
+    </property>
+
+</configuration>

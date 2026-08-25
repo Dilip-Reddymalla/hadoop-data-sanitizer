@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  mapred-site.xml  -  IDENTICAL ON ALL FIVE NODES.
+
+  The three HADOOP_MAPRED_HOME properties are what a client serialises into
+  job.xml at submit time and ships to the ApplicationMaster container. If the
+  submitting node is missing them, the AM starts with no MapReduce classpath and
+  the job dies with:
+
+      org.apache.hadoop.mapreduce.v2.app.MRAppMaster ... ClassNotFoundException
+
+  This is "missing on the submitter" bug in miniature: the cluster can look
+  perfectly healthy and the job still fail, because it depends on which node
+  typed the command. Put all three on every node, client or not.
+-->
+<configuration>
+
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+        <description>Run jobs on YARN rather than in-process ("local").</description>
+    </property>
+
+    <property>
+        <name>yarn.app.mapreduce.am.env</name>
+        <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
+        <description>
+            Environment for the ApplicationMaster when it launches in a container.
+            This is the single most common cause of "AM dies instantly" on a
+            hand-built cluster.
+        </description>
+    </property>
+
+    <property>
+        <name>mapreduce.map.env</name>
+        <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
+    </property>
+
+    <property>
+        <name>mapreduce.reduce.env</name>
+        <value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
+    </property>
+
+</configuration>

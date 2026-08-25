@@ -1,0 +1,17 @@
+# ============================================================================
+# Append to $HADOOP_HOME/etc/hadoop/hadoop-env.sh on EVERY node.
+# ============================================================================
+#
+# Hadoop's launcher scripts do not inherit your interactive shell's environment.
+# A JAVA_HOME exported only in ~/.bashrc works when you run `hadoop jar` by hand
+# and then mysteriously fails when start-dfs.sh launches a daemon over SSH,
+# because a non-interactive SSH session never sources ~/.bashrc. Set it here as
+# well. Belt and braces, and the braces are the ones that hold.
+
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+
+# Optional: cap daemon heap so a laptop stays usable while the cluster runs.
+export HDFS_NAMENODE_OPTS="-Xmx1024m"
+export HDFS_DATANODE_OPTS="-Xmx512m"
+export YARN_RESOURCEMANAGER_OPTS="-Xmx1024m"
+export YARN_NODEMANAGER_OPTS="-Xmx512m"

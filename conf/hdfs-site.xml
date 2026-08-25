@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  hdfs-site.xml
+
+  The dfs.namenode.name.dir property belongs on the MASTER only; the
+  dfs.datanode.data.dir property belongs on every node that stores blocks. It is
+  harmless to ship both everywhere - a DataNode ignores the NameNode property
+  and vice versa - and it keeps the five files identical, which is worth more
+  than the tidiness of per-role files.
+-->
+<configuration>
+
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file:///data/hadoop/hdfs/namenode</value>
+        <description>MASTER ONLY in practice. Holds fsimage + edit log.</description>
+    </property>
+
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:///data/hadoop/hdfs/datanode</value>
+        <description>
+            Block storage. Under WSL2 keep this on the Linux filesystem, never on
+            a /mnt/c path: the 9p mount is slow and does not give HDFS the
+            file semantics it expects.
+        </description>
+    </property>
+
+    <property>
+        <name>dfs.replication</name>
+        <value>3</value>
+        <description>
+            Three copies of every block across five nodes. With commodity laptops
+            that sleep and disconnect, 3 is the lowest value that still tolerates
+            two simultaneous absences.
+        </description>
+    </property>
+
+    <property>
+        <name>dfs.blocksize</name>
+        <value>134217728</value>
+        <description>
+            128 MiB. This is the property that decides map-task count: an input
+            file of 244 MiB becomes 2 blocks, therefore 2 splits, therefore 2 map
+            tasks. Worth knowing before wondering why only two workers are busy.
+        </description>
+    </property>
+
+    <property>
+        <name>dfs.namenode.datanode.registration.ip-hostname-check</name>
+        <value>false</value>
+        <description>
+            DataNodes register by IP. On a mesh network the reverse lookup of a
+            mesh address does not necessarily match the forward one, and this
+            check would reject an otherwise healthy DataNode over that mismatch.
+        </description>
+    </property>
+
+</configuration>
