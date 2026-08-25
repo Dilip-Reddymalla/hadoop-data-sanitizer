@@ -1403,3 +1403,10 @@ One of our three bugs was diagnosed in ten seconds by diffing against a backup.
 
 Nothing in either document is estimated. Where a figure was not recoverable it is
 marked as such rather than filled in.
+
+---
+
+# Author
+R. Dilip
+# Contributors
+D. Sohan
